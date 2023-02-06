@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>Watch Party Chat #{{room_id}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+  <script>
+    {% if user %}
+    WATCH_PARTY_USER_ID = {{ user.id }};
+    WATCH_PARTY_API_KEY = '{{ user.api_key }}';
+    {% endif %}
+  </script>
+  <script src="/static/script.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <h2><a href="/">Watch Party</a></h2>
+  <invite>
+    {% if room %}
+    <p>Invite users to this chat at:</p>
+    <a href="/rooms/{{ room['id'] }}" id="invite link">/rooms/{{ room['id'] }}</a>
+    {% endif %}
+  </invite>
+</div>
+
+<div class="clip">
+<div class="container">
+  {% if room %}
+  <div class="chat">
+    <div class="comment_box">
+      <form>
+        <label for="comment">What do you have to say?</label>
+        <textarea name="comment"></textarea>
+        <button type="submit" value="Post">Post</button>
+      </form>
+    </div>
+    <div class="messages">
+      <message>
+        <author>Mr Chatterworth</author>
+        <content>Good evening! And how is everyone feeling?</content>
+      </message>
+      <message>
+        <author>big chats</author>
+        <content>gr8 lol</content>
+      </message>
+      <message>
+        <author>Mr Chatterworth</author>
+        <content>Splendid!</content>
+      </message>
+      <message>
+        <author>Chatty Cat</author>
+        <content>
+          Meow meow meow meow meow meow meow meow meow meow meow 
+          meow meow meow meow meow meow meow meow meow meow meow 
+          meow meow meow meow meow meow meow meow meow meow meow 
+        </content>
+      </message>
+      <message>
+        <author>Mr Chatterworth</author>
+        <content>Indeed, M. Cat. Indeed. 🧐</content>
+      </message>
+    </div>
+  </div>
+  {% else %}
+  <h2>Oops, we can't find that room!</h2>
+  <p><a href="/">Let's go home and try again.</a></p>
+  {% endif %}
+</div>
+</div>
+
+<script>
+startMessagePolling();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Watch Party</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+  <script src="/static/script.js"></script>
+  <script>
+    {% if user %}
+    WATCH_PARTY_USER_ID = {{ user.id }};
+    WATCH_PARTY_API_KEY = '{{ user.api_key }}';
+    {% endif %}
+  </script>
+</head>
+<body>
+<div class="container">
+
+  <div class="auth">
+    <h2>Welcome to Watch Party!</h2>
+    <p>Your username is: <span class="mono">{{ user.name }}</span></p>
+    <p>Your password is <span class="mono">{{ user.password }}</span></p>
+    <p>
+      Your user ID and API Key are available on every page as the javascript variables
+      <span class="mono">WATCH_PARTY_USER_ID</span> and
+      <span class="mono">WATCH_PARTY_API_KEY</span> respectively
+    </p>
+    <p>
+      <a href="/">Cool, let's go!</a>
+    </p>
+  </div>
+
+
+</div>
+
+</body>
+</html>
