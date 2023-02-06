@@ -15,6 +15,10 @@ and the [Flask](https://flask.palletsprojects.com/en/2.2.x/installation/) web
 application framework. You may want to read the 
 [Flask Quickstart Guide](https://flask.palletsprojects.com/en/2.2.x/quickstart/).
 
+Launch the app by running `flask run` on the command line from your Exercise 5 
+directory. I recommend running `flask run --reload`, which will make the server 
+automatically load changes to your python files.
+
 Your task will be to implement a REST API for some of the Watch Party's functions,
 and client-side Javascript code that consumes that API. Though the exercise is
 designed to only require changes to `script.js` and `app.py`, you may make any
